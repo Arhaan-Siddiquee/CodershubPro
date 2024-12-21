@@ -12,7 +12,7 @@ function App() {
       <div className="flex">
         <Sidebar />
 
-        <div className="flex-1 p-8">
+        <div className="flex-1 p-8 bg-gray-500">
           <Routes>
             <Route path="/home" element={<Home />} />
             <Route path="/skills" element={<Skills />} />
