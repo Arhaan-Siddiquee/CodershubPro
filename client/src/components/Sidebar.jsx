@@ -1,16 +1,35 @@
-import React from 'react'
-import { Link } from 'react-router-dom' // Import Link from react-router-dom
-import { FaHome, FaSuitcase, FaCode, FaUserCircle, FaSignOutAlt } from 'react-icons/fa'
+import React, { useState } from 'react';
+import { Link } from 'react-router-dom'; // Import Link from react-router-dom
+import { FaHome, FaSuitcase, FaCode, FaUserCircle, FaSignOutAlt } from 'react-icons/fa';
 
 const Sidebar = () => {
+  const [image, setImage] = useState(null);
+
+  // Handle image upload
+  const handleImageChange = (event) => {
+    const file = event.target.files[0];
+    if (file) {
+      setImage(URL.createObjectURL(file)); // Create a URL for the uploaded image
+    }
+  };
+
   return (
     <div className="w-64 h-screen bg-gray-800 text-white flex flex-col justify-between p-4">
       {/* Logo Section */}
-      <div className="flex justify-center mb-8">
-        <img 
-          src="https://via.placeholder.com/100" 
-          alt="Logo" 
-          className="w-24 h-24 rounded-full"
+      <div className="relative flex justify-center mb-8">
+        <label htmlFor="file-upload" className="cursor-pointer">
+          <img
+            src={image || "https://via.placeholder.com/100"}
+            alt="Logo"
+            className="w-24 h-24 rounded-full"
+          />
+        </label>
+        <input
+          id="file-upload"
+          type="file"
+          accept="image/*"
+          onChange={handleImageChange}
+          className="absolute inset-0 w-full h-full opacity-0 cursor-pointer"
         />
       </div>
 
@@ -44,7 +63,7 @@ const Sidebar = () => {
         <span>Logout</span>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default Sidebar
+export default Sidebar;
