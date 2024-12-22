@@ -884,6 +884,15 @@ chokidar@^3.6.0:
   optionalDependencies:
     fsevents "~2.3.2"
 
+"client@file:.":
+  version "0.0.0"
+  dependencies:
+    client "file:../../../../AppData/Local/Yarn/Cache/v6/npm-client-0.0.0-00ebcfc5-9501-4f4e-a801-574995f564bd-1734845789201/node_modules/client"
+    react "^18.3.1"
+    react-dom "^18.3.1"
+    react-icons "^5.4.0"
+    react-router-dom "^7.1.0"
+
 color-convert@^2.0.1:
   version "2.0.1"
   resolved "https://registry.yarnpkg.com/color-convert/-/color-convert-2.0.1.tgz#72d3a68d598c9bdb3af2ad1e84f21d896abd4de3"
