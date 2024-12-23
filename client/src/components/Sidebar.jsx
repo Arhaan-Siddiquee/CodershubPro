@@ -1,29 +1,36 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom'; // Import Link from react-router-dom
+import { Link, useNavigate } from 'react-router-dom'; 
 import { FaHome, FaSuitcase, FaCode, FaUserCircle, FaSignOutAlt } from 'react-icons/fa';
+import navbarlogo from "../assets/navbarlogo.png";
 
 const Sidebar = () => {
   const [image, setImage] = useState(null);
+  const navigate = useNavigate(); 
 
-  // Handle image upload
+  //to handle image upload
   const handleImageChange = (event) => {
     const file = event.target.files[0];
     if (file) {
-      setImage(URL.createObjectURL(file)); // Create a URL for the uploaded image
+      setImage(URL.createObjectURL(file));
     }
   };
 
+  const handleLogout = () => {
+    localStorage.removeItem('user'); // Example: Remove user data from localStorage
+
+    // Navigate to the sign-in page
+    navigate('/signin');
+  };
+
   return (
-    <div className="w-64 h-screen bg-gray-800 text-white flex flex-col justify-between p-4">
+    <div className="w-64 h-screen bg-gray-800 text-white flex flex-col justify-between p-4 sticky top-0 left-0">
       {/* Logo Section */}
       <div className="relative flex justify-center mb-8">
-        <label htmlFor="file-upload" className="cursor-pointer">
-          <img
-            src={image || "https://via.placeholder.com/100"}
-            alt="Logo"
-            className="w-24 h-24 rounded-full"
-          />
-        </label>
+        <img
+          src={navbarlogo}
+          alt="Logo"
+          className="w-48 h-16"
+        />
         <input
           id="file-upload"
           type="file"
@@ -58,7 +65,10 @@ const Sidebar = () => {
       </div>
 
       {/* Logout Section */}
-      <div className="flex items-center space-x-4 mt-auto hover:bg-red-700 p-3 rounded-md cursor-pointer">
+      <div
+        onClick={handleLogout} 
+        className="flex items-center space-x-4 mt-auto hover:bg-red-700 p-3 rounded-md cursor-pointer"
+      >
         <FaSignOutAlt className="text-2xl" />
         <span>Logout</span>
       </div>

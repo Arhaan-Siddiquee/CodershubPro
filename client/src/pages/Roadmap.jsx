@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import Expand from '../assets/Expand.png'; // Ensure the path to your image is correct
 import { IoClose } from 'react-icons/io5'; // Import the close icon
 
-const Skills = () => {
+const Roadmap = () => {
   const [selectedBox, setSelectedBox] = useState(null);
 
   // Data for each box
@@ -83,4 +83,4 @@ const Skills = () => {
   );
 };
 
-export default Skills;
+export default Roadmap;

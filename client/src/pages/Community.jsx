@@ -8,7 +8,7 @@ const Community = () => {
       {/* Text and Image Container */}
       <div className="text-center max-w-3xl mx-auto">
         {/* Bold Text */}
-        <h1 className="text-3xl font-extrabold mb-4">
+        <h1 className="text-3xl font-extrabold mb-4 mt-20">
           JOIN TECH COMMUNITIES
         </h1>
         {/* Smaller Text */}
