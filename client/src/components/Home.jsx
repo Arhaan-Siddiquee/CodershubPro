@@ -3,7 +3,7 @@ import { FaLaptopCode, FaClipboardCheck, FaChartLine } from 'react-icons/fa'
 
 const Home = () => {
   return (
-    <div className="flex flex-col items-center py-16 bg-gray-100">
+    <div className="flex flex-col items-center py-16 bg-white">
       {/* Main Heading */}
       <h1 className="text-4xl font-bold text-center text-gray-800 mb-4">
         Your Dream Tech Career Awaits

@@ -10,6 +10,7 @@ import Roadmap from './pages/Roadmap';
 import Findevents from './pages/Findevents';
 import Profile from './components/Profile';
 import Interview from './components/Interview';
+import InterviewIndex from './components/InterviewIndex';
 import Career from './components/Career';
 import { useState, useEffect } from 'react';
 

@@ -119,8 +119,11 @@ const Profile = () => {
       {/* LeetCode Statistics Section */}
       <div className="bg-white p-4 rounded-lg shadow-lg dark:bg-gray-800 dark:text-white">
         <h3 className="text-lg font-semibold mb-4">LeetCode Stats</h3>
-        <p><strong>Total Solved:</strong> {leetcodeStats.totalSolved}</p>
         <p><strong>Total Questions:</strong> {leetcodeStats.totalQuestions}</p>
+        <p><strong>Total Solved:</strong> {leetcodeStats.totalSolved}</p>
+        <p><strong>easySolved:</strong> {leetcodeStats.easySolved}</p>
+        <p><strong>mediumSolved:</strong> {leetcodeStats.mediumSolved}</p>
+        <p><strong>hardSolved:</strong> {leetcodeStats.hardSolved}</p>
         <p><strong>Acceptance Rate:</strong> {leetcodeStats.acceptanceRate}%</p>
         <p><strong>Ranking:</strong> {leetcodeStats.ranking}</p>
         <p><strong>Contribution Points:</strong> {leetcodeStats.contributionPoints}</p>
