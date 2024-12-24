@@ -1,16 +1,13 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
+import { FaMoon, FaSun } from 'react-icons/fa'; // Importing React Icons
 import { Line, Bar } from 'react-chartjs-2';
 import { Chart as ChartJS, CategoryScale, LinearScale, PointElement, LineElement, BarElement, Title, Tooltip, Legend } from 'chart.js';
-import { FaMoon, FaSun } from 'react-icons/fa'; // Importing React Icons
 
-// Register the required components for Chart.js
+// Registering the required components for Chart.js
 ChartJS.register(CategoryScale, LinearScale, PointElement, LineElement, BarElement, Title, Tooltip, Legend);
 
 const Profile = () => {
   const [isDarkMode, setIsDarkMode] = useState(false);
-  const [leetcodeStats, setLeetcodeStats] = useState(null);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
 
   // Example user data
   const userData = {
@@ -23,6 +20,7 @@ const Profile = () => {
     achievements: ['Built a full-stack app', 'Contributed to open-source projects'],
   };
 
+  // Experience Data for the Line chart
   const experienceData = {
     labels: ['2018', '2019', '2020', '2021', '2022', '2023'],
     datasets: [
@@ -36,6 +34,7 @@ const Profile = () => {
     ],
   };
 
+  // Skills Data for the Bar chart
   const skillsData = {
     labels: userData.skills,
     datasets: [
@@ -49,25 +48,7 @@ const Profile = () => {
     ],
   };
 
-  useEffect(() => {
-    const username = 'AdityaKumarSingh7209';
-
-    fetch(`https://leetcode-stats-api.herokuapp.com/${username}`)
-      .then((response) => response.json())
-      .then((data) => {
-        if (data.status === 'success') {
-          setLeetcodeStats(data);
-        } else {
-          setError('Failed to load data');
-        }
-        setLoading(false);
-      })
-      .catch((err) => {
-        setError('Failed to load data');
-        setLoading(false);
-      });
-  }, []);
-
+  // Dark Mode Toggle Handler
   const toggleDarkMode = () => {
     setIsDarkMode(!isDarkMode);
     if (!isDarkMode) {
@@ -76,14 +57,6 @@ const Profile = () => {
       document.documentElement.classList.remove('dark');
     }
   };
-
-  if (loading) {
-    return <div>Loading...</div>;
-  }
-
-  if (error) {
-    return <div>Error: {error}</div>;
-  }
 
   return (
     <div className={`p-4 grid grid-cols-1 md:grid-cols-2 gap-6 ${isDarkMode ? 'bg-gray-900 text-white' : 'bg-white text-black'}`}>
@@ -116,18 +89,14 @@ const Profile = () => {
         </div>
       </div>
 
-      {/* LeetCode Statistics Section */}
+      {/* LeetCode Stats Section - Using Markdown-based Image */}
       <div className="bg-white p-4 rounded-lg shadow-lg dark:bg-gray-800 dark:text-white">
         <h3 className="text-lg font-semibold mb-4">LeetCode Stats</h3>
-        <p><strong>Total Questions:</strong> {leetcodeStats.totalQuestions}</p>
-        <p><strong>Total Solved:</strong> {leetcodeStats.totalSolved}</p>
-        <p><strong>easySolved:</strong> {leetcodeStats.easySolved}</p>
-        <p><strong>mediumSolved:</strong> {leetcodeStats.mediumSolved}</p>
-        <p><strong>hardSolved:</strong> {leetcodeStats.hardSolved}</p>
-        <p><strong>Acceptance Rate:</strong> {leetcodeStats.acceptanceRate}%</p>
-        <p><strong>Ranking:</strong> {leetcodeStats.ranking}</p>
-        <p><strong>Contribution Points:</strong> {leetcodeStats.contributionPoints}</p>
-        <p><strong>Reputation:</strong> {leetcodeStats.reputation}</p>
+        <img
+          src="https://leetcard.jacoblin.cool/AdityaKumarSingh7209?theme=dark&font=Maven%20Pro&ext=heatmap"
+          alt="LeetCode Stats"
+          className="w-full h-auto"
+        />
       </div>
 
       {/* Experience Growth Chart */}
