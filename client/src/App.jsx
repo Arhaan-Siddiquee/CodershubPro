@@ -1,7 +1,7 @@
 import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 import Sidebar from './components/Sidebar';
 import Home from './components/Home';
-import SignUp from './pages/SignUp'; 
+import SignUp from './pages/SignUp';
 import SignIn from './pages/SignIn';
 import Index from './pages/Index';
 import Community from './pages/Community';
@@ -9,9 +9,10 @@ import Esmoai from './pages/Esmoai';
 import Roadmap from './pages/Roadmap';
 import Findevents from './pages/Findevents';
 import Profile from './components/Profile';
-import Interview from './components/Interview';
+import Interview from './components/interview'; // Interview page
 import InterviewIndex from './components/InterviewIndex';
 import Career from './components/Career';
+import InterviewAnalytics from './components/InterviewAnalytics'; // Import InterviewAnalytics
 import { useState, useEffect } from 'react';
 
 function App() {
@@ -53,8 +54,14 @@ function App() {
             <Route path="/esmoai" element={isAuthenticated ? <Esmoai /> : <Navigate to="/signin" />} />
             <Route path="/findevents" element={isAuthenticated ? <Findevents /> : <Navigate to="/signin" />} />
 
+            {/* Interview Routes */}
+            <Route path="/interview" element={isAuthenticated ? <InterviewIndex /> : <Navigate to="/signin" />} />
+            <Route path="/interview/:role" element={isAuthenticated ? <Interview /> : <Navigate to="/signin" />} />
+
+            {/* Add the new InterviewAnalytics Route */}
+            <Route path="/interview-analytics" element={isAuthenticated ? <InterviewAnalytics /> : <Navigate to="/signin" />} />
+
             {/* Other routes */}
-            <Route path="/interview" element={isAuthenticated ? <Interview /> : <Navigate to="/signin" />} />
             <Route path="/career" element={isAuthenticated ? <Career /> : <Navigate to="/signin" />} />
           </Routes>
         </div>

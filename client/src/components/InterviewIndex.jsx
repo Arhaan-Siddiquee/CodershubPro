@@ -26,7 +26,7 @@ const InterviewIndex = () => {
         {roles.map((role) => (
           <Link
             key={role.name}
-            to={`/interview/${role.name}`}
+            to={`/interview/${role.name}`} // This will route to the interview page with role as a parameter
             className="role-card bg-[#2e3b6b] p-6 rounded-lg shadow-lg text-center"
           >
             <h3 className="text-2xl text-gray-100 mb-4">{role.name}</h3>

@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom'; 
 import { FaHome, FaSuitcase, FaCode, FaUserCircle, FaSignOutAlt } from 'react-icons/fa';
 import navbarlogo from "../assets/navbarlogo.png";
+import { SiGooglemeet } from "react-icons/si";
 
 const Sidebar = () => {
   const [image, setImage] = useState(null);
@@ -47,7 +48,7 @@ const Sidebar = () => {
           <span>Home</span>
         </Link>
         <Link to="/Interview" className="flex items-center space-x-4 hover:bg-gray-700 p-3 rounded-md cursor-pointer">
-          <FaHome className="text-2xl" />
+          <SiGooglemeet className="text-2xl" />
           <span>Interview</span>
         </Link>
         <Link to="/career" className="flex items-center space-x-4 hover:bg-gray-700 p-3 rounded-md cursor-pointer">

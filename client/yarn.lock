@@ -917,11 +917,15 @@ chokidar@^3.6.0:
     axios "^1.7.9"
     chart.js "^4.4.7"
     client "file:"
+    lodash.debounce "^4.0.8"
     react "^18.3.1"
     react-chartjs-2 "^5.2.0"
     react-dom "^18.3.1"
     react-icons "^5.4.0"
     react-router-dom "^7.1.0"
+    react-speech "^1.0.2"
+    react-speech-recognition "^3.10.0"
+    regenerator-runtime "^0.14.1"
 
 color-convert@^2.0.1:
   version "2.0.1"
@@ -1639,6 +1643,11 @@ ignore@^5.2.0:
   resolved "https://registry.npmjs.org/ignore/-/ignore-5.3.2.tgz"
   integrity sha512-hsBTNUqQTDwkWtcdYI2i06Y/nUBEsNEDJKjWdigLvegy8kDuJAS8uRlpkkcQpyEXL0Z/pjDy5HBmMjRCJ2gq+g==
 
+immutability-helper@^3.0.1:
+  version "3.1.1"
+  resolved "https://registry.npmjs.org/immutability-helper/-/immutability-helper-3.1.1.tgz"
+  integrity sha512-Q0QaXjPjwIju/28TsugCHNEASwoCcJSyJV3uO1sOIQGI0jKgm9f41Lvz0DZj3n46cNCyAZTsEYoY4C2bVRUzyQ==
+
 import-fresh@^3.2.1:
   version "3.3.0"
   resolved "https://registry.npmjs.org/import-fresh/-/import-fresh-3.3.0.tgz"
@@ -1958,6 +1967,11 @@ locate-path@^6.0.0:
   dependencies:
     p-locate "^5.0.0"
 
+lodash.debounce@^4.0.8:
+  version "4.0.8"
+  resolved "https://registry.npmjs.org/lodash.debounce/-/lodash.debounce-4.0.8.tgz"
+  integrity sha512-FT1yDzDYEoYWhnSGnpE/4Kj1fLZkDFyqRb7fNt6FdYOSxlUWAtp42Eh6Wb0rGIv/m9Bgo7x4GhQbm5Ys4SG5ow==
+
 lodash.merge@^4.6.2:
   version "4.6.2"
   resolved "https://registry.npmjs.org/lodash.merge/-/lodash.merge-4.6.2.tgz"
@@ -2275,7 +2289,7 @@ prelude-ls@^1.2.1:
   resolved "https://registry.npmjs.org/prelude-ls/-/prelude-ls-1.2.1.tgz"
   integrity sha512-vkcDPrRZo1QZLbn5RLGPpg/WmIQ65qoWWhcGKf/b5eplkkarX0m9z8ppCat4mlOqUsWpyNuYgO3VRyrYHSzX5g==
 
-prop-types@^15.8.1:
+prop-types@^15.6.2, prop-types@^15.8.1:
   version "15.8.1"
   resolved "https://registry.npmjs.org/prop-types/-/prop-types-15.8.1.tgz"
   integrity sha512-oj87CgZICdulUohogVAR7AjlC0327U4el4L6eAvOqCeudMDVU0NThNaV+b9Df4dXgSP1gXMTnPdhfe/2qDH5cg==
@@ -2344,12 +2358,34 @@ react-router@7.1.0:
     set-cookie-parser "^2.6.0"
     turbo-stream "2.4.0"
 
-react@*, "react@^16.8.0 || ^17.0.0 || ^18.0.0", react@^18.3.1, react@>=18:
+react-speech-recognition@^3.10.0:
+  version "3.10.0"
+  resolved "https://registry.npmjs.org/react-speech-recognition/-/react-speech-recognition-3.10.0.tgz"
+  integrity sha512-EVSr4Ik8l9urwdPiK2r0+ADrLyDDrjB0qBRdUWO+w2MfwEBrj6NuRmy1GD3x7BU/V6/hab0pl8Lupen0zwlJyw==
+
+react-speech@^1.0.2:
+  version "1.0.2"
+  resolved "https://registry.npmjs.org/react-speech/-/react-speech-1.0.2.tgz"
+  integrity sha512-z/HgICAqmWIwXbQnxVDm0CMgu6MlZzkVtp37F7kd9vPKSJw8Pcv+f2wFy5kOwTO5m5BOD9awnCsBa5J9XovPJA==
+  dependencies:
+    immutability-helper "^3.0.1"
+    react "^16.10.1"
+
+react@*, "react@^16.8.0 || ^17.0.0 || ^18.0.0", react@^18.3.1, react@>=16.8.0, react@>=18:
   version "18.3.1"
   resolved "https://registry.npmjs.org/react/-/react-18.3.1.tgz"
   integrity sha512-wS+hAgJShR0KhEvPJArfuPVN1+Hz1t0Y6n5jLrGQbkb4urgPE/0Rve+1kMB1v/oWgHgm4WIcV+i7F2pTVj+2iQ==
   dependencies:
     loose-envify "^1.1.0"
+
+react@^16.10.1:
+  version "16.14.0"
+  resolved "https://registry.npmjs.org/react/-/react-16.14.0.tgz"
+  integrity sha512-0X2CImDkJGApiAlcf0ODKIneSwBPhqJawOa5wCtKbu7ZECrmS26NvtSILynQ66cgkT/RJ4LidJOc3bUESwmU8g==
+  dependencies:
+    loose-envify "^1.1.0"
+    object-assign "^4.1.1"
+    prop-types "^15.6.2"
 
 read-cache@^1.0.0:
   version "1.0.0"
@@ -2378,6 +2414,11 @@ reflect.getprototypeof@^1.0.6, reflect.getprototypeof@^1.0.8, reflect.getprototy
     get-intrinsic "^1.2.6"
     gopd "^1.2.0"
     which-builtin-type "^1.2.1"
+
+regenerator-runtime@^0.14.1:
+  version "0.14.1"
+  resolved "https://registry.npmjs.org/regenerator-runtime/-/regenerator-runtime-0.14.1.tgz"
+  integrity sha512-dYnhHh0nJoMfnkZs6GmmhFknAGRrLznOu5nc9ML+EJxGvrx6H7teuevqVqCuPcPK//3eDrrjQhehXVx9cnkGdw==
 
 regexp.prototype.flags@^1.5.3:
   version "1.5.3"
